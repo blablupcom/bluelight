@@ -1,4 +1,7 @@
  # -*- coding: utf-8 -*-
+import sys
+reload(sys) # Reload does the trick!
+sys.setdefaultencoding('UTF8')
 from datetime import datetime
 import urllib
 #import BeautifulSoup
@@ -234,7 +237,7 @@ if __name__ == '__main__':
 
                 attach_list = []
                 attach_list = get_attachments(tender_soup)
-                scraperwiki.sqlite.save(unique_keys=['l'], data={"l": unicode(link), "tender_id": unicode(tender_id), "buyer": unicode(buyer), "title" : unicode(title), "summary": summary.decode('utf-8'), "categories": unicode(categories), "contact_name": unicode(contact_name), "contact_phone": contact_phone, "contact_email": unicode(contact_email), "contact_addr": contact_addr,  "contract_start": contract_start, "contract_end": contract_end, "eoi_start": eoi_start, "eoi_end": eoi_end, "est_value": est_value, "contract_duration": contract_duration,"extension_duration": extension_duration, "extension_iterations": extension_iterations, "attach_list": unicode(attach_list), "d": todays_date})
+                scraperwiki.sqlite.save(unique_keys=['l'], data={"l":unicode(link), "tender_id": unicode(tender_id), "buyer": unicode(buyer), "title" : unicode(title), "categories": unicode(categories), "contact_name": unicode(contact_name), "contact_phone": unicode(contact_phone), "contact_addr": unicode(contact_addr), "contact_email": unicode(contact_email), "contract_start": contract_start, "contract_end": contract_end, "eoi_start": eoi_start, "eoi_end": eoi_end, "est_value": unicode(est_value), "contract_duration": unicode(contract_duration), "extension_duration": unicode(extension_duration), "extension_iterations": unicode(extension_iterations), "summary": unicode(summary), "attach_list": unicode(attach_list),"d": todays_date })
 
                 # csv_row = [link, tender_id,buyer,title,summary,categories,contact_name,contact_phone,contact_email,contact_addr,contract_start,contract_end,eoi_start,eoi_end,est_value,contract_duration,extension_duration,extension_iterations,attach_list]
                 #
